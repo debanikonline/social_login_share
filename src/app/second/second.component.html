@@ -7,8 +7,8 @@
   <hr>
   <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <hr>
-  <button class="btn " id='facebookbtn' (click)="facebookloginfunction()" [disabled]='isLogged'><i class="fa fa-facebook"></i>{{facebookbuttontext}}</button>
-  <button class="btn " id='googlebtn' (click)="googleloginfunction()" [disabled]='isLogged' ><i class="fa fa-facebook"></i>  {{googlebuttontext}}</button>
+  <button class="btn socialbtn" id='facebookbtn' (click)="facebookloginfunction()" ><i class="fa fa-facebook"></i>{{facebookbuttontext}}</button>
+  <button class="btn socialbtn" id='googlebtn' (click)="googleloginfunction()" ><i class="fa fa-facebook"></i>  {{googlebuttontext}}</button>
   <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
   
 
@@ -49,5 +49,5 @@
     </div>
   </div>
 
-  <button class='btn btn-danger logout'  (click)='logout()'>Logout</button>
+  <button class='btn btn-danger logout hidden'  (click)='logout()'>Logout</button>
 

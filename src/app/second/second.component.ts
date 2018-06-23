@@ -18,7 +18,6 @@ export class SecondComponent implements OnInit {
   public facebookbuttontext;
   public googlebuttontext;
   public loginname;
-  public isLogged=false;
   constructor(public _auth:AuthService,public service:AuthServService,public spinner:NgxSpinnerService) { }
 
   ngOnInit() {
@@ -29,7 +28,6 @@ export class SecondComponent implements OnInit {
       this.facebookbuttontext="Logged In";
       this.googlebuttontext="Logged In";
       this.loginname=localStorage.getItem('name');
-      this.isLogged=true;
     }
     else
     {
@@ -48,11 +46,11 @@ export class SecondComponent implements OnInit {
       {
         $(".logout").removeClass("hidden");
         console.log("loggedIn via facebook");
+        $(".socialbtn").addClass("disabled");
         localStorage.setItem("isLogged","true");
         localStorage.setItem("name",this.user.name);
         this.facebookbuttontext="Logged In";
         console.log(this.user);
-        this.isLogged=true;
         this.loginname=localStorage.getItem('name');
         Swal({
           title: 'Success',
@@ -72,12 +70,12 @@ export class SecondComponent implements OnInit {
       if(this.user.email)
       {
         $(".logout").removeClass("hidden");
+        $(".socialbtn").addClass("disabled");
         console.log("loggedIn via google");
         localStorage.setItem("isLogged","true");
         localStorage.setItem("name",this.user.name);
         this.googlebuttontext="Logged In";
         console.log(this.user);
-        this.isLogged=true;
         this.loginname=localStorage.getItem('name');
         Swal({
           title: 'Success',
@@ -92,9 +90,10 @@ export class SecondComponent implements OnInit {
   logout()
   {
     $(".logout").addClass("hidden");
+
+    $(".socialbtn").removeClass("disabled");
     this.facebookbuttontext="Login with Facebook";
     this.googlebuttontext="Login with Google";
-    this.isLogged=false;
     localStorage.clear();
     this.loginname="";
     Swal({
