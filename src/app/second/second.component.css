@@ -1,0 +1,38 @@
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+ 
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  #facebookbtn,#googlebtn {
+    background-color: #3B5998;
+    color: white;
+
+}
+
+    .fa-facebook[_ngcontent-c1] {
+    background: #3B5998;
+    color: white;
+}
+
+.fa[_ngcontent-c1] {
+    padding: 3px;
+    font-size: 16px;
+}
+.hide
+{
+    display:block;
+}
+.btn
+{
+    margin-top:12px;
+}

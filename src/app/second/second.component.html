@@ -1,0 +1,53 @@
+<div class="fb-share-button" [attr.data-href]="thisurl" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+  <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+  </div>
+  <hr>
+<div class="g-plus" data-action="share" [attr.data-href]="thisurl" data-annotation="bubble" data-height="24"></div>
+
+  <hr>
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <hr>
+  <button class="btn " id='facebookbtn' (click)="facebookloginfunction()" [disabled]='isLogged'><i class="fa fa-facebook"></i>{{facebookbuttontext}}</button>
+  <button class="btn " id='googlebtn' (click)="googleloginfunction()" [disabled]='isLogged' ><i class="fa fa-facebook"></i>  {{googlebuttontext}}</button>
+  <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+  
+
+  <hr>
+  email
+  <hr>
+  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Share Via Email</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Share Via Email</h4>
+        </div>
+        <div class="modal-body">
+            <ngx-spinner
+            bdColor = "rgba(51, 51, 51, 0.8)"
+            size = "medium"
+            color = "#fff"
+            type = "ball-clip-rotate-multiple"
+            ></ngx-spinner>
+          <form #sendref='ngForm' (ngSubmit)="sendemail(sendref.value)">
+            <input type="hidden" [(ngModel)]="thisurl" name='link' id='link' class="text">
+            <input class='form-control' type="text" name='name' id='name' [(ngModel)]='loginname' >
+            <input class='form-control' type="text" name='email' id='email' placeholder="Recepient's E-mail Address" ngModel>
+            <button class="submit center-block btn" type='submit'  >Send Email</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <button class='btn btn-danger logout'  (click)='logout()'>Logout</button>
+
